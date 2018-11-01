@@ -16,6 +16,7 @@ class Import {
     if (prompt.confirmContinue) {
       this.backupConnections();
       this.buildConnections(this.plist(this.sequelProFavorites)["Favorites Root"]["Children"]);
+      this.addExistingConnections();
       this.createGroups();
       this.mapConnections();
 
@@ -48,6 +49,18 @@ class Import {
           this.newConnections.push({group: group, connections: val});
       }
     });
+  }
+
+  /**
+  * Checks if any existing connections are set up in tablePlus. If so, add those to the newConnections array.
+  */
+  addExistingConnections() {
+    let tablePlusConnections = this.plist(this.tablePlusConnections);
+    if (tablePlusConnections.length) {
+      tablePlusConnections.forEach(connection => {
+        this.newConnections.push({group: null, connections: connection});
+      });
+    }
   }
 
   /**
