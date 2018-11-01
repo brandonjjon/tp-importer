@@ -5,6 +5,10 @@ An unofficial way to import existing Sequel Pro connections into TablePlus.
 ## *Although a backup is created, this script is intended for use on fresh installations of TablePlus and will overwrite any existing connections.*
 
 ### Prerequisites
+* [TablePlus](https://tableplus.io/)
+* [Sequel Pro](https://www.sequelpro.com/)
+* Node
+* NPM or Yarn
 
 Tested and working with node v10.8.0
 
