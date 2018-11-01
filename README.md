@@ -34,4 +34,4 @@ $ ./tp-importer
 ## Built With
 
 * [Commander.js](https://github.com/tj/commander.js/) - node.js command-line interfaces
-* [Inquierer](https://github.com/SBoudrias/Inquirer.js/) - A collection of common interactive command line user interfaces.
+* [Inquirer](https://github.com/SBoudrias/Inquirer.js/) - A collection of common interactive command line user interfaces.
