@@ -1,0 +1,28 @@
+#!/usr/bin/env node
+
+/**
+ * Module dependencies.
+ */
+const program = require('commander');
+const { prompt } = require('inquirer');
+const package = require('./package.json');
+const Import = require('./src/importer');
+
+const questions = [
+	{
+		type: 'confirm',
+		name: 'confirmContinue',
+		message: 'Please be sure both TablePlus and Sequel Pro are closed. This script is intended for use on a fresh installation of TablePlus and will not bring over any existing connections if you are already using it. Do you wish to continue?',
+	}
+];
+
+program
+	.version(package.version)
+	.description(package.description)
+	.action(() => {
+		prompt(questions).then(answers => {
+				new Import(answers);
+		});
+	});
+	
+program.parse(process.argv);
