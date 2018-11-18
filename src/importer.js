@@ -72,6 +72,46 @@ class Import {
   mapConnections() {
     let map = this.newConnections.map(connection => {
       if (!connection.connections.length) {
+
+        let statusColor='';
+        
+        switch(connection.connections.colorIndex) {
+        	// red
+        	case 0:
+            statusColor='#FFD7D4';
+        	break;
+        	
+        	// orange
+        	case 1:
+            statusColor='#FFD78A';
+        	break;
+        	
+        	// yellow
+        	case 2:
+            statusColor='#F8F7BD';
+        	break;
+        	
+        	// green
+        	case 3:
+            statusColor='#DAEBC2';
+        	break;
+        	
+        	// blue
+        	case 4:
+            statusColor='#B2D5FF';
+        	break;
+        	
+        	// purple
+        	case 5:
+            statusColor='#E2BBFF';
+        	break;
+        	
+        	// gray
+        	case 6:
+            statusColor='#F8F8F8';
+        	break;
+        }
+      
         return {
           "ConnectionName": connection.connections.name || "",
           "DatabaseHost": connection.connections.host || "",
@@ -105,7 +145,7 @@ class Import {
           "isUsePrivateKey": 1,
           "isUseResourceFile": 0,
           "isUseSocket": 0,
-          "statusColor": "",
+          "statusColor": statusColor,
           "tLSMode": 0
         }
       }
