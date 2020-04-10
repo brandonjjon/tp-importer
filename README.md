@@ -13,7 +13,7 @@ An unofficial way to import existing Sequel Pro connections into TablePlus.
 Tested and working with node v10.8.0
 
 ### Installing
-Please note that this script will not bring over any passwords. You will need to add those directly in TablePlus once the import is complete.
+Please note that this script will not bring over any passwords. You will need to add those directly in TablePlus once the import is complete. You can easily copy the individual passwords by searching for the existing database name in the Keychain Access app.
 
 Clone the project somewhere on your system:
 ```
