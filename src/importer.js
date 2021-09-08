@@ -5,9 +5,11 @@ const plist = require('plist');
 const homedir = require('os').homedir();
 
 class Import {
-  
+
   constructor(prompt) {
-    this.sequelProFavorites   = `${homedir}/Library/Application Support/Sequel Pro/Data/Favorites.plist`;
+    this.favoritesToImport = prompt.importFrom === 'sequelpro' ?
+      `${homedir}/Library/Application Support/Sequel Pro/Data/Favorites.plist` :
+      `${homedir}/Library/Containers/com.sequel-ace.sequel-ace/Data/Library/Application Support/Sequel Ace/Data/Favorites.plist`;
     this.tablePlusConnections = `${homedir}/Library/Application Support/com.tinyapp.TablePlus/Data/Connections.plist`;
     this.tablePlusConnectionGroups = `${homedir}/Library/Application Support/com.tinyapp.TablePlus/Data/ConnectionGroups.plist`;
     this.newConnections = [];
@@ -15,7 +17,7 @@ class Import {
 
     if (prompt.confirmContinue) {
       this.backupConnections();
-      this.buildConnections(this.plist(this.sequelProFavorites)["Favorites Root"]["Children"]);
+      this.buildConnections(this.plist(this.favoritesToImport)["Favorites Root"]["Children"]);
       this.createGroups();
       this.mapConnections();
 

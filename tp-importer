@@ -10,6 +10,15 @@ const Import = require('./src/importer');
 
 const questions = [
 	{
+		type: 'list',
+		name: 'importFrom',
+		message: 'Do you want to import from Sequel Pro or Sequel Ace?',
+		choices: ['SequelPro', 'SequelAce',],
+		filter(val) {
+			return val.toLowerCase();
+		},
+	},
+	{
 		type: 'confirm',
 		name: 'confirmContinue',
 		message: 'Please be sure both TablePlus and Sequel Pro are closed. This script is intended for use on a fresh installation of TablePlus and will not bring over any existing connections if you are already using it. Do you wish to continue?',

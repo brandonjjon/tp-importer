@@ -1,12 +1,12 @@
 # TP-Importer
 
-An unofficial way to import existing Sequel Pro connections into TablePlus. 
+An unofficial way to import existing Sequel Pro or Sequel Ace connections into TablePlus. 
 
 ## *Although a backup is created, this script is intended for use on fresh installations of TablePlus and will overwrite any existing connections.*
 
 ### Prerequisites
 * [TablePlus](https://tableplus.io/)
-* [Sequel Pro](https://www.sequelpro.com/)
+* [Sequel Pro](https://www.sequelpro.com/) OR [Sequel Ace](https://github.com/Sequel-Ace/Sequel-Ace)
 * Node
 * NPM or Yarn
 
@@ -26,7 +26,7 @@ $ cd tp-importer
 $ npm install
 ```
 
-Be sure both Sequel Pro and TablePlus are closed and run the script:
+Be sure both Sequel Pro or Sequel Ace and TablePlus are closed and run the script:
 ```
 $ ./tp-importer
 ```
