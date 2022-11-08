@@ -10,11 +10,9 @@ class Import {
     this.favoritesToImport = prompt.importFrom === 'sequelpro' ?
       `${homedir}/Library/Application Support/Sequel Pro/Data/Favorites.plist` :
       `${homedir}/Library/Containers/com.sequel-ace.sequel-ace/Data/Library/Application Support/Sequel Ace/Data/Favorites.plist`;
-      console.log(prompt);
     this.tablePlusConnections = prompt.importTo === 'standalone' ?
       `${homedir}/Library/Application Support/com.tinyapp.TablePlus/Data/Connections.plist` :
       `${homedir}/Library/Application Support/com.tinyapp.TablePlus-setapp/Data/Connections.plist`;
-      console.log(this.tablePlusConnections);
     this.tablePlusConnectionGroups = prompt.importTo === 'standalone' ?
       `${homedir}/Library/Application Support/com.tinyapp.TablePlus/Data/ConnectionGroups.plist` :
       `${homedir}/Library/Application Support/com.tinyapp.TablePlus-setapp/Data/ConnectionGroups.plist`;
