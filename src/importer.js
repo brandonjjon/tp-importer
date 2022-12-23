@@ -10,8 +10,12 @@ class Import {
     this.favoritesToImport = prompt.importFrom === 'sequelpro' ?
       `${homedir}/Library/Application Support/Sequel Pro/Data/Favorites.plist` :
       `${homedir}/Library/Containers/com.sequel-ace.sequel-ace/Data/Library/Application Support/Sequel Ace/Data/Favorites.plist`;
-    this.tablePlusConnections = `${homedir}/Library/Application Support/com.tinyapp.TablePlus/Data/Connections.plist`;
-    this.tablePlusConnectionGroups = `${homedir}/Library/Application Support/com.tinyapp.TablePlus/Data/ConnectionGroups.plist`;
+    this.tablePlusConnections = prompt.importTo === 'standalone' ?
+      `${homedir}/Library/Application Support/com.tinyapp.TablePlus/Data/Connections.plist` :
+      `${homedir}/Library/Application Support/com.tinyapp.TablePlus-setapp/Data/Connections.plist`;
+    this.tablePlusConnectionGroups = prompt.importTo === 'standalone' ?
+      `${homedir}/Library/Application Support/com.tinyapp.TablePlus/Data/ConnectionGroups.plist` :
+      `${homedir}/Library/Application Support/com.tinyapp.TablePlus-setapp/Data/ConnectionGroups.plist`;
     this.newConnections = [];
     this.newGroups = [];
 
@@ -163,12 +167,12 @@ class Import {
     const newConnections = plist.build(this.newConnections);
     const newGroups = plist.build(this.newGroups);
 
-    fs.writeFile(`${homedir}/Library/Application Support/com.tinyapp.TablePlus/Data/Connections.plist`, newConnections, (err) => {
+    fs.writeFile(this.tablePlusConnections, newConnections, (err) => {
       if (err) throw err;
       console.log('The connections have been saved!');
     });
 
-    fs.writeFile(`${homedir}/Library/Application Support/com.tinyapp.TablePlus/Data/ConnectionGroups.plist`, newGroups, (err) => {
+    fs.writeFile(this.tablePlusConnectionGroups, newGroups, (err) => {
       if (err) throw err;
       console.log('The groups have been saved!');
     });
